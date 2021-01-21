@@ -1,0 +1,2 @@
+include ':app', ':ScPaperAnalysiserLib'
+rootProject.name='ScPaperAnalysiserSdk_Android'
