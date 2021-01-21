@@ -1,4 +1,4 @@
-package com.example.paperdemo.view;
+package com.example.paperdemo.basic.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.example.paperdemo.R;
+import com.example.paperdemo.basic.R;
 
 import androidx.annotation.Nullable;
 

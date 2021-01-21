@@ -1,4 +1,4 @@
-package com.example.paperdemo.view;
+package com.example.paperdemo.basic.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -17,7 +17,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.example.paperdemo.R;
+import com.example.paperdemo.basic.R;
 import com.ikangtai.papersdk.util.Utils;
 
 

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.example.paperdemo.view.TopBar
+    <com.example.paperdemo.basic.view.TopBar
         android:id="@+id/topBar"
         style="@style/toolBarStyle"
         custom:midText="@string/paper_clip_title"/>
@@ -22,7 +22,7 @@
         android:layout_below="@+id/topBar"
         android:scaleType="centerInside" />
 
-    <com.example.paperdemo.view.ManualSmartPaperMeasureLayout
+    <com.example.paperdemo.basic.view.ManualSmartPaperMeasureLayout
         android:id="@+id/paper_clip_measureLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package com.example.paperdemo.ui;
+package com.example.paperdemo.basic.ui;
 
 import android.app.Activity;
 import android.content.DialogInterface;
@@ -11,11 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.paperdemo.PaperCameraActivity;
-import com.example.paperdemo.PaperClipActivity;
-import com.example.paperdemo.PaperDetailActivity;
-import com.example.paperdemo.R;
-import com.example.paperdemo.view.ActionSheetDialog;
+import com.example.paperdemo.basic.PaperCameraActivity;
+import com.example.paperdemo.basic.PaperClipActivity;
+import com.example.paperdemo.basic.PaperDetailActivity;
+import com.example.paperdemo.basic.R;
+import com.example.paperdemo.basic.view.ActionSheetDialog;
 import com.ikangtai.papersdk.util.ImageUtil;
 import com.ikangtai.papersdk.util.ToastUtils;
 

@@ -1,4 +1,4 @@
-package com.example.paperdemo;
+package com.example.paperdemo.basic;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,14 +7,12 @@ import android.text.Html;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.paperdemo.view.OvulationSeekBar;
-import com.example.paperdemo.view.TopBar;
+import com.example.paperdemo.basic.view.OvulationSeekBar;
+import com.example.paperdemo.basic.view.TopBar;
 import com.ikangtai.papersdk.http.reqmodel.PaperCycleAnalysisReq;
 import com.ikangtai.papersdk.model.PaperResult;
 import com.ikangtai.papersdk.util.DateUtil;

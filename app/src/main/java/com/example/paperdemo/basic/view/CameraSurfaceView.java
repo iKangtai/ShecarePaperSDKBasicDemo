@@ -1,4 +1,4 @@
-package com.example.paperdemo.view;
+package com.example.paperdemo.basic.view;
 
 /**
  * desc

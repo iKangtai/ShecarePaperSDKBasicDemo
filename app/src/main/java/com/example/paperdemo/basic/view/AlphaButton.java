@@ -1,28 +1,27 @@
-package com.example.paperdemo.view;
-
+package com.example.paperdemo.basic.view;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
-import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatButton;
 
 /**
  * desc
  *
- * @author xiongyl 2019/12/11 15:36
+ * @author xiongyl 2019/11/29 17:10
  */
-public class AlphaImage extends AppCompatImageView {
-    public AlphaImage(Context context) {
+public class AlphaButton extends AppCompatButton {
+    public AlphaButton(Context context) {
         super(context);
     }
 
-    public AlphaImage(Context context, AttributeSet attrs) {
+    public AlphaButton(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public AlphaImage(Context context, AttributeSet attrs, int defStyleAttr) {
+    public AlphaButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -37,7 +36,6 @@ public class AlphaImage extends AppCompatImageView {
                 objectAnimator.start();
 
                 break;
-
             case MotionEvent.ACTION_CANCEL:
             case MotionEvent.ACTION_OUTSIDE:
             case MotionEvent.ACTION_UP:
@@ -50,3 +48,4 @@ public class AlphaImage extends AppCompatImageView {
         return super.onTouchEvent(event);
     }
 }
+

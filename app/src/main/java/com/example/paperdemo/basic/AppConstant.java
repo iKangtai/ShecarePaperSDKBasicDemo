@@ -1,4 +1,4 @@
-package com.example.paperdemo;
+package com.example.paperdemo.basic;
 
 /**
  * desc

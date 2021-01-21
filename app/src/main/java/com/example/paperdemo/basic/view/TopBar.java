@@ -1,4 +1,4 @@
-package com.example.paperdemo.view;
+package com.example.paperdemo.basic.view;
 
 
 import android.content.Context;
@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.paperdemo.R;
+import com.example.paperdemo.basic.R;
 import com.ikangtai.papersdk.util.PxDxUtil;
 
 /**

@@ -6,7 +6,7 @@
     android:background="#F8F8F8"
     android:orientation="vertical">
 
-    <com.example.paperdemo.view.TopBar
+    <com.example.paperdemo.basic.view.TopBar
         android:id="@+id/topBar"
         style="@style/toolBarStyle"
         custom:midText="@string/smart_paper_result" />
@@ -43,7 +43,7 @@
                     android:layout_height="@dimen/dp_25" />
 
                 <!--滑块拖动-->
-                <com.example.paperdemo.view.OvulationSeekBar
+                <com.example.paperdemo.basic.view.OvulationSeekBar
                     android:id="@+id/ovulationSeekBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />

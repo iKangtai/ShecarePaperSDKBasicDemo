@@ -1,4 +1,4 @@
-package com.example.paperdemo.view;
+package com.example.paperdemo.basic.view;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.example.paperdemo.R;
+import com.example.paperdemo.basic.R;
 
 import java.util.ArrayList;
 import java.util.List;

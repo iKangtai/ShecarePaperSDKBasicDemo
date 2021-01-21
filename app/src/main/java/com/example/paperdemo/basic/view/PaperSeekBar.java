@@ -1,4 +1,4 @@
-package com.example.paperdemo.view;
+package com.example.paperdemo.basic.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,7 +10,7 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
-import com.example.paperdemo.R;
+import com.example.paperdemo.basic.R;
 
 import androidx.appcompat.widget.AppCompatSeekBar;
 
