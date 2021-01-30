@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.example.paperdemo.basic.view.TopBar
+    <com.ikangtai.paperui.view.TopBar
         android:id="@+id/topBar"
         style="@style/toolBarStyle"
         custom:midText="@string/paper_clip_title" />
@@ -32,18 +32,18 @@
         </ScrollView>
 
 
-        <com.example.paperdemo.basic.view.SmartPaperMeasureContainerLayout
+        <com.ikangtai.paperui.view.SmartPaperMeasureContainerLayout
             android:id="@+id/paper_scan_content_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
 
-            <com.example.paperdemo.basic.view.ManualSmartPaperMeasureLayout
+            <com.ikangtai.paperui.view.ManualSmartPaperMeasureLayout
                 android:id="@+id/paper_manual_smart_paper_measureLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-        </com.example.paperdemo.basic.view.SmartPaperMeasureContainerLayout>
+        </com.ikangtai.paperui.view.SmartPaperMeasureContainerLayout>
         <!--闪光灯-->
         <TextView
             android:id="@+id/paper_flash_tv"
@@ -73,7 +73,7 @@
                 android:textColor="@color/white" />
 
 
-            <com.example.paperdemo.basic.view.AlphaImage
+            <com.ikangtai.paperui.view.AlphaImage
                 android:id="@+id/shutterBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

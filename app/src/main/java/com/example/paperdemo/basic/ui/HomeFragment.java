@@ -11,19 +11,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.paperdemo.basic.PaperCameraActivity;
-import com.example.paperdemo.basic.PaperClipActivity;
-import com.example.paperdemo.basic.PaperDetailActivity;
 import com.example.paperdemo.basic.R;
 import com.example.paperdemo.basic.view.ActionSheetDialog;
 import com.ikangtai.papersdk.util.ImageUtil;
 import com.ikangtai.papersdk.util.ToastUtils;
+import com.ikangtai.paperui.PaperCameraActivity;
+import com.ikangtai.paperui.PaperClipActivity;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 public class HomeFragment extends Fragment {
-    public static final String TAG = PaperDetailActivity.class.getSimpleName();
+    public static final String TAG = HomeFragment.class.getSimpleName();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

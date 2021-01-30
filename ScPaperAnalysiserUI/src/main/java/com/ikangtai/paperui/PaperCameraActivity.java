@@ -1,4 +1,4 @@
-package com.example.paperdemo.basic;
+package com.ikangtai.paperui;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -15,11 +15,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.paperdemo.basic.view.ManualSmartPaperMeasureLayout;
-import com.example.paperdemo.basic.view.PaperHintDialog;
-import com.example.paperdemo.basic.view.ProgressDialog;
-import com.example.paperdemo.basic.view.SmartPaperMeasureContainerLayout;
-import com.example.paperdemo.basic.view.TopBar;
+import com.ikangtai.paperui.view.ManualSmartPaperMeasureLayout;
+import com.ikangtai.paperui.view.PaperHintDialog;
+import com.ikangtai.paperui.view.ProgressDialog;
+import com.ikangtai.paperui.view.SmartPaperMeasureContainerLayout;
+import com.ikangtai.paperui.view.TopBar;
 import com.ikangtai.papersdk.Config;
 import com.ikangtai.papersdk.PaperAnalysiserClient;
 import com.ikangtai.papersdk.PaperResultDialog;

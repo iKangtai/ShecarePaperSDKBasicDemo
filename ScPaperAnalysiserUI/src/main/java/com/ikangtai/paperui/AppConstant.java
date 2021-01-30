@@ -1,4 +1,4 @@
-package com.example.paperdemo.basic;
+package com.ikangtai.paperui;
 
 /**
  * desc

@@ -1,4 +1,4 @@
-package com.example.paperdemo.basic;
+package com.ikangtai.paperui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,8 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.paperdemo.basic.view.OvulationSeekBar;
-import com.example.paperdemo.basic.view.TopBar;
+import com.ikangtai.paperui.view.OvulationSeekBar;
+import com.ikangtai.paperui.view.TopBar;
 import com.ikangtai.papersdk.http.reqmodel.PaperCycleAnalysisReq;
 import com.ikangtai.papersdk.model.PaperResult;
 import com.ikangtai.papersdk.util.DateUtil;

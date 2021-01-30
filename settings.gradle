@@ -1,2 +1,3 @@
+include ':ScPaperAnalysiserUI'
 include ':app'
 rootProject.name='ScPaperAnalysiserDemo_Basic_Android'
