@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 
 
 /**
- * 类描述：伊仕半定量试纸专用
+ * 类描述：试纸色卡选择
  * 创建时间：2018/8/10 16:39
  */
 public class OvulationSeekBar extends LinearLayout  {

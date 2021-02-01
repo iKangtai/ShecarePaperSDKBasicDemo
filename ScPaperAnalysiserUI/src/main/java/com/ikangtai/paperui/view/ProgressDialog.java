@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.ikangtai.paperui.R;
 
 /**
- * desc
+ * Loading Dialog
  *
  * @author xiongyl 2020/2/26 18:49
  */

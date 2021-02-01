@@ -15,11 +15,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ikangtai.paperui.view.ManualSmartPaperMeasureLayout;
-import com.ikangtai.paperui.view.PaperHintDialog;
-import com.ikangtai.paperui.view.ProgressDialog;
-import com.ikangtai.paperui.view.SmartPaperMeasureContainerLayout;
-import com.ikangtai.paperui.view.TopBar;
 import com.ikangtai.papersdk.Config;
 import com.ikangtai.papersdk.PaperAnalysiserClient;
 import com.ikangtai.papersdk.PaperResultDialog;
@@ -30,6 +25,11 @@ import com.ikangtai.papersdk.util.CameraUtil;
 import com.ikangtai.papersdk.util.FileUtil;
 import com.ikangtai.papersdk.util.LogUtils;
 import com.ikangtai.papersdk.util.ToastUtils;
+import com.ikangtai.paperui.view.ManualSmartPaperMeasureLayout;
+import com.ikangtai.paperui.view.PaperHintDialog;
+import com.ikangtai.paperui.view.ProgressDialog;
+import com.ikangtai.paperui.view.SmartPaperMeasureContainerLayout;
+import com.ikangtai.paperui.view.TopBar;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -56,20 +56,12 @@ public class PaperCameraActivity extends Activity {
         setContentView(R.layout.activity_paper_camera);
         initTopBar();
         /**
-         * 使用测试网络
-         */
-        Config.setTestServer(true);
-        /**
-         * 网络超时时间
-         */
-        Config.setNetTimeOut(30);
-
-        /**
          * 自定义log文件有两种方式,设置一次即可
+         * 默认/data/android/package/documents/log.txt
          * 1.new Config.Builder().logWriter(logWriter).
          * 2.new Config.Builder().logFilePath(logFilePath).
          */
-        String logFilePath = new File(FileUtil.createRootPath(this), "log.txt").getAbsolutePath();
+        String logFilePath = new File(FileUtil.createRootPath(this), AppConstant.logFileName).getAbsolutePath();
         BufferedWriter logWriter = null;
         try {
             logWriter = new BufferedWriter(new FileWriter(logFilePath, true), 2048);
@@ -79,7 +71,7 @@ public class PaperCameraActivity extends Activity {
         //试纸识别sdk相关配置
         Config config = new Config.Builder().logWriter(logWriter).build();
         //初始化sdk
-        paperAnalysiserClient = new PaperAnalysiserClient(this, AppConstant.appId, AppConstant.appSecret, "xyl1@qq.com", config);
+        paperAnalysiserClient = new PaperAnalysiserClient(this, AppConstant.appId, AppConstant.appSecret, AppConstant.unionId, config);
         findViewById(R.id.camera_scrollview).setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -121,6 +113,7 @@ public class PaperCameraActivity extends Activity {
         textureView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                //点击屏幕重新聚焦
                 if (cameraUtil != null) {
                     cameraUtil.focusOnTouch(event);
                 }
@@ -185,6 +178,10 @@ public class PaperCameraActivity extends Activity {
 
     }
 
+    /**
+     * Camera重置
+     * @param restartOpenCamera
+     */
     private void restartScan(boolean restartOpenCamera) {
         if (smartPaperMeasureContainerLayout != null) {
             smartPaperMeasureContainerLayout.showManualSmartPaperMeasure();
@@ -225,7 +222,7 @@ public class PaperCameraActivity extends Activity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        LogUtils.d("paper sdk closeSession");
+        LogUtils.d("sdk关闭Session");
         paperAnalysiserClient.closeSession();
     }
 
@@ -237,7 +234,7 @@ public class PaperCameraActivity extends Activity {
         paperAnalysiserClient.analysisClipBitmapFromCamera(fileBitmap, upLeftPoint, rightBottomPoint, new IBaseAnalysisEvent() {
             @Override
             public void showProgressDialog() {
-                LogUtils.d("Show Loading Dialog");
+                LogUtils.d("显示Loading");
                 PaperCameraActivity.this.showProgressDialog(new View.OnClickListener() {
 
                     @Override
@@ -249,7 +246,7 @@ public class PaperCameraActivity extends Activity {
 
             @Override
             public void dismissProgressDialog() {
-                LogUtils.d("Show Loading Dialog");
+                LogUtils.d("隐藏loading");
                 PaperCameraActivity.this.dismissProgressDialog();
             }
 
@@ -271,7 +268,7 @@ public class PaperCameraActivity extends Activity {
                 paperResult.setNoMarginBitmap(null);
                 Intent intent = new Intent(PaperCameraActivity.this, PaperDetailActivity.class);
                 intent.putExtra("bean", paperResult);
-                startActivityForResult(intent, 1002);
+                startActivityForResult(intent, 1001);
             }
 
             @Override
@@ -319,16 +316,12 @@ public class PaperCameraActivity extends Activity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         LogUtils.d("页面返回结果 requestCode：" + requestCode + " resultCode:" + resultCode);
-        if (requestCode == 1002) {
+        if (requestCode == 1001) {
             if (resultCode == Activity.RESULT_OK) {
                 int paperValue = data.getIntExtra("paperValue", 0);
-                //手动修改lhValue
+                //结果页修改result后，需要同步给SDK,有助于识别优化
                 paperAnalysiserClient.updatePaperValue(paperValue);
             }
-            //重新开始扫描
-            restartScan(false);
-        } else if (requestCode == 1003) {
-            //重新开始扫描
             restartScan(false);
         }
     }

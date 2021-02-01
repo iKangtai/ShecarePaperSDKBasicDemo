@@ -4,19 +4,18 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.ikangtai.paperui.view.OvulationSeekBar;
-import com.ikangtai.paperui.view.TopBar;
 import com.ikangtai.papersdk.http.reqmodel.PaperCycleAnalysisReq;
 import com.ikangtai.papersdk.model.PaperResult;
 import com.ikangtai.papersdk.util.DateUtil;
 import com.ikangtai.papersdk.util.FileUtil;
+import com.ikangtai.paperui.view.OvulationSeekBar;
+import com.ikangtai.paperui.view.TopBar;
 
 import java.io.File;
 import java.io.Serializable;
@@ -25,7 +24,7 @@ import java.util.ArrayList;
 import androidx.annotation.Nullable;
 
 /**
- * 试纸详情
+ * 试纸结果
  *
  * @author xiongyl 2021/01/21 12:31
  */
@@ -56,7 +55,6 @@ public class PaperDetailActivity extends Activity implements View.OnClickListene
     private String paperNameId;
     private int paperResult;
     private int lhPaperAlType;
-
     private PaperResult paperBean;
     public static final String PIC_JPG = ".jpg";
 
@@ -147,13 +145,7 @@ public class PaperDetailActivity extends Activity implements View.OnClickListene
         }
 
         if (paperTime != null) {
-            if (!TextUtils.isEmpty(paperDate)) {
-                int index = paperDate.lastIndexOf(":");
-                if (index > 0) {
-                    paperTime.setText(paperDate.substring(0, index));
-                }
-
-            }
+            paperTime.setText(paperDate);
         }
 
         if (saveBtn != null) {
@@ -162,6 +154,11 @@ public class PaperDetailActivity extends Activity implements View.OnClickListene
         showAnalysisResult(paperResult);
     }
 
+    /**
+     * 显示试纸结果
+     *
+     * @param paperResult
+     */
     private void showAnalysisResult(int paperResult) {
         if (ovulationSeekBar != null) {
             ovulationSeekBar.setSeekBarStatus(paperResult);
@@ -181,14 +178,6 @@ public class PaperDetailActivity extends Activity implements View.OnClickListene
         return paperResult;
     }
 
-    private void save() {
-        Intent intent = new Intent();
-        intent.putExtra("paperValue", paperResult);
-        setResult(RESULT_OK, intent);
-        finish();
-    }
-
-
     @Override
     public void onClick(View v) {
         if (v == updatePaperResult) {
@@ -197,7 +186,10 @@ public class PaperDetailActivity extends Activity implements View.OnClickListene
             ovulationSeekBar.setSeekBarTitle(getString(R.string.color_reference_bar_title_2));
             ovulationSeekBar.setSeekbarMapEnable(true);
         } else if (v == saveBtn) {
-            save();
+            Intent intent = new Intent();
+            intent.putExtra("paperValue", paperResult);
+            setResult(RESULT_OK, intent);
+            finish();
         }
     }
 }

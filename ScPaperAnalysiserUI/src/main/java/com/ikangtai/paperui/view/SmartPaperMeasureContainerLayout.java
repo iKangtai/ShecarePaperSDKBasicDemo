@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 /**
- * desc
+ * 试纸拍照View
  *
  * @author xiongyl 2019/11/6 21:22
  */

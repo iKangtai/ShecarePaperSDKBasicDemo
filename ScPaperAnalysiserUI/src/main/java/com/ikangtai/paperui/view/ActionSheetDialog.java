@@ -20,11 +20,6 @@ import com.ikangtai.paperui.R;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * desc
- *
- * @author xiongyl 2019/12/11 22:24
- */
 public class ActionSheetDialog {
     protected Dialog dialog;
 

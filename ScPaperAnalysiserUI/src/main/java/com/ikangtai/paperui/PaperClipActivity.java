@@ -13,10 +13,6 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 
-import com.ikangtai.paperui.view.ManualSmartPaperMeasureLayout;
-import com.ikangtai.paperui.view.PaperHintDialog;
-import com.ikangtai.paperui.view.ProgressDialog;
-import com.ikangtai.paperui.view.TopBar;
 import com.ikangtai.papersdk.Config;
 import com.ikangtai.papersdk.PaperAnalysiserClient;
 import com.ikangtai.papersdk.PaperResultDialog;
@@ -28,8 +24,15 @@ import com.ikangtai.papersdk.util.ImageUtil;
 import com.ikangtai.papersdk.util.LogUtils;
 import com.ikangtai.papersdk.util.PxDxUtil;
 import com.ikangtai.papersdk.util.ToastUtils;
+import com.ikangtai.paperui.view.ManualSmartPaperMeasureLayout;
+import com.ikangtai.paperui.view.PaperHintDialog;
+import com.ikangtai.paperui.view.ProgressDialog;
+import com.ikangtai.paperui.view.TopBar;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * 试纸裁剪识别
@@ -82,13 +85,23 @@ public class PaperClipActivity extends Activity implements View.OnTouchListener 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Config.setTestServer(true);
-        Config.setNetTimeOut(30);
+        /**
+         * 自定义log文件有两种方式,设置一次即可
+         * 默认/data/android/package/documents/log.txt
+         * 1.new Config.Builder().logWriter(logWriter).
+         * 2.new Config.Builder().logFilePath(logFilePath).
+         */
+        String logFilePath = new File(FileUtil.createRootPath(this), AppConstant.logFileName).getAbsolutePath();
+        BufferedWriter logWriter = null;
+        try {
+            logWriter = new BufferedWriter(new FileWriter(logFilePath, true), 2048);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         //试纸识别sdk相关配置
-        Config config = new Config.Builder().margin(10).build();
+        Config config = new Config.Builder().logWriter(logWriter).build();
         //初始化sdk
-        paperAnalysiserClient = new PaperAnalysiserClient(this, AppConstant.appId, AppConstant.appSecret, "xyl1@qq.com", config);
-
+        paperAnalysiserClient = new PaperAnalysiserClient(this, AppConstant.appId, AppConstant.appSecret, AppConstant.unionId,config);
         setContentView(R.layout.activity_paper_clip_picture);
         srcPic = this.findViewById(R.id.src_pic);
         mImageView = srcPic;
@@ -350,24 +363,6 @@ public class PaperClipActivity extends Activity implements View.OnTouchListener 
         return bitmap;
     }
 
-    private Bitmap getPaperBitmap() {
-
-        mImageView.setDrawingCacheEnabled(true);
-        mImageView.buildDrawingCache();
-        Bitmap bitmap = mImageView.getDrawingCache();
-        int x = measureLayout.getLeft();
-        int y = measureLayout.getTop() -
-                PxDxUtil.dip2px(this, 50);
-        int width = measureLayout.getWidth();
-        int height = measureLayout.getHeight();
-        Bitmap finalBitmap = Bitmap.createBitmap(bitmap,
-                x, y, width, height);
-
-        // 释放资源
-        mImageView.destroyDrawingCache();
-        return finalBitmap;
-    }
-
     /**
      * 取旋转角度
      *
@@ -396,7 +391,7 @@ public class PaperClipActivity extends Activity implements View.OnTouchListener 
         if (requestCode == 2001) {
             if (resultCode == Activity.RESULT_OK) {
                 int paperValue = data.getIntExtra("paperValue", 0);
-                //手动修改lhValue
+                //结果页修改result后，需要同步给SDK,有助于识别优化
                 paperAnalysiserClient.updatePaperValue(paperValue);
             }
             finish();

@@ -12,11 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.paperdemo.basic.R;
-import com.example.paperdemo.basic.view.ActionSheetDialog;
 import com.ikangtai.papersdk.util.ImageUtil;
 import com.ikangtai.papersdk.util.ToastUtils;
 import com.ikangtai.paperui.PaperCameraActivity;
 import com.ikangtai.paperui.PaperClipActivity;
+import com.ikangtai.paperui.view.ActionSheetDialog;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -38,6 +38,7 @@ public class HomeFragment extends Fragment {
                                 new ActionSheetDialog.OnSheetItemClickListener() {
                                     @Override
                                     public void onClick(int which) {
+                                        //进行试纸拍照识别
                                         Intent intent = new Intent(getContext(), PaperCameraActivity.class);
                                         startActivity(intent);
                                     }
@@ -46,6 +47,7 @@ public class HomeFragment extends Fragment {
                                 new ActionSheetDialog.OnSheetItemClickListener() {
                                     @Override
                                     public void onClick(int which) {
+                                        //相册选择图片识别
                                         Intent intent = new Intent(Intent.ACTION_PICK);
                                         intent.setType("image/*");
                                         startActivityForResult(intent, 1001);
@@ -66,9 +68,9 @@ public class HomeFragment extends Fragment {
         Log.d(TAG, "页面返回结果 requestCode：" + requestCode + " resultCode:" + resultCode);
         if (requestCode == 1001 && resultCode == Activity.RESULT_OK) {
             if (data != null) {
-                // 得到图片的全路径
                 Uri fileUri = data.getData();
                 if (fileUri != null) {
+                    // 得到图片的全路径
                     final String uriStr = ImageUtil.getPathFromUri(getContext(), fileUri);
                     if (TextUtils.isEmpty(uriStr)) {
                         ToastUtils.show(getContext(), "图片错误");
