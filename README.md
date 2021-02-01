@@ -212,7 +212,7 @@
                     }
                 });
   ```
-  7.非必要的配置
+  5.非必要的配置
   ```java
 
         //网络配置需要在初始化sdk之前
@@ -225,7 +225,7 @@
         1.SupportDeviceUtil.isSupport(getContext(),AppConstant.appId, AppConstant.appSecret)#第一次校验不准
         2.application初始化中调用SupportDeviceUtil.isSupport(getContext(),AppConstant.appId, AppConstant.appSecret)，实际判断处调用SupportDeviceUtil.isSupport(getContext())
     ```
-  7.调用完成释放资源
+  6.调用完成释放资源
   ```java
     paperAnalysiserClient.closeSession();
   ```
