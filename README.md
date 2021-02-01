@@ -1,5 +1,4 @@
 # 试纸拍照识别基础版Demo
-
 分为UI库和SDK库,UI库需要手动Copy到自己项目，SDK库上传到bintray使用Gradle引入
 ## 基础版SDK UI库
 ### 基础版SDK UI库接入
@@ -7,8 +6,8 @@
        implementation project(path:":ScPaperAnalysiserUI")
    ```
 ### 使用方法
-    1.修改com.ikangtai.paperui.AppConstant参数
-    ```java
+  1.修改com.ikangtai.paperui.AppConstant参数
+  ```java
        /**
         * 测试appId,appSecret
         * 100200
@@ -19,18 +18,19 @@
        public static String appSecret = "6e1b1049a9486d49ba015af00d5a0";
        public static String unionId = "xiongyl@ikangtai.com";
        public static String logFileName = "logFileName.txt";
-    ```
-    2.进行试纸拍照识别
-    ```java
+  ```
+  2.进行试纸拍照识别
+  ```java
       Intent intent = new Intent(getContext(), PaperCameraActivity.class);
       startActivity(intent);
-    ```
-    3.相册选择图片裁剪识别
-    ```java
+  ```
+  3.相册选择图片裁剪识别
+  ```java
       Intent intent = new Intent(getContext(), PaperClipActivity.class);
       intent.putExtra("paperUri", uriStr);
       startActivity(intent);
-    ```
+  ```
+
 ## 基础版SDK接入指南
 ### 一.引入试纸sdk库
    ```java
