@@ -150,12 +150,12 @@
                     @Override
                     public void showProgressDialog() {
                         //显示加载框
-                        LogUtils.d("Show Loading Dialog");
+                        LogUtils.d("显示Dialog");
                         that.showProgressDialog(new View.OnClickListener() {
 
                             @Override
                             public void onClick(View v) {
-                                //停止网络请求
+                                //点击取消网络请求Loading
                                 paperAnalysiserClient.stopShowProgressDialog();
                             }
                         });
@@ -164,7 +164,7 @@
                     @Override
                     public void dismissProgressDialog() {
                         //隐藏加载框
-                        LogUtils.d("Hide Loading Dialog");
+                        LogUtils.d("隐藏Dialog");
                     }
 
                     @Override

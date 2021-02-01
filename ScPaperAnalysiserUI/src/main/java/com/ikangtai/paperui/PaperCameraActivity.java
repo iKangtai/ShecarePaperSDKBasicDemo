@@ -239,6 +239,7 @@ public class PaperCameraActivity extends Activity {
 
                     @Override
                     public void onClick(View v) {
+                        //点击取消网络请求Loading
                         paperAnalysiserClient.stopShowProgressDialog();
                     }
                 });
