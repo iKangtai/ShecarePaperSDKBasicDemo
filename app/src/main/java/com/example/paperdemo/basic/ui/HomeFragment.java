@@ -47,7 +47,7 @@ public class HomeFragment extends Fragment {
                                 new ActionSheetDialog.OnSheetItemClickListener() {
                                     @Override
                                     public void onClick(int which) {
-                                        //相册选择图片识别
+                                        //相册选择图片
                                         Intent intent = new Intent(Intent.ACTION_PICK);
                                         intent.setType("image/*");
                                         startActivityForResult(intent, 1001);
@@ -76,6 +76,7 @@ public class HomeFragment extends Fragment {
                         ToastUtils.show(getContext(), "图片错误");
                         return;
                     }
+                    //相册选择图片裁剪识别
                     Intent intent = new Intent(getContext(), PaperClipActivity.class);
                     intent.putExtra("paperUri", uriStr);
                     startActivity(intent);
