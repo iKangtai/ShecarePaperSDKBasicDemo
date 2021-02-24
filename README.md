@@ -1,6 +1,6 @@
 # 试纸拍照识别基础版Demo
 ## Demo
-    [http://fir.ikangtai.cn/1ha5](http://fir.ikangtai.cn/1ha5)
+[http://fir.ikangtai.cn/1ha5](http://fir.ikangtai.cn/1ha5)
 
 分为UI库和SDK库,UI库需要手动Copy到自己项目，SDK库上传到bintray通过Gradle引入
 ## 基础版SDK UI库
