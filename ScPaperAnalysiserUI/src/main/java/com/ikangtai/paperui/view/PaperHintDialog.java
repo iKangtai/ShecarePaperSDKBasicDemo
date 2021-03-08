@@ -2,6 +2,7 @@ package com.ikangtai.paperui.view;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.support.v7.app.AppCompatDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +10,6 @@ import android.widget.TextView;
 
 import com.ikangtai.paperui.R;
 
-import androidx.appcompat.app.AppCompatDialog;
 
 
 /**
