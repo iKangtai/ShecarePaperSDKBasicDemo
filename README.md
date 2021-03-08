@@ -37,7 +37,7 @@
 ## 基础版SDK接入指南
 ### 一.引入试纸sdk库
    ```java
-       api 'com.ikangtai.papersdk:ScPaperAnalysiserBasicLib:1.5.7-alpha2'
+       api 'com.ikangtai.papersdk:ScPaperAnalysiserBasicLib:1.5.8'
    ```
 ### 二.添加依赖库地址
    ```java
