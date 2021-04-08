@@ -235,9 +235,19 @@ English | [中文文档](README_zh.md)
   ```java
     paperAnalysiserClient.closeSession();
   ```
+### Confusion configuration
+  If your application uses code obfuscation, please add the following configuration to avoid SDK being unavailable due to incorrect obfuscation.
+  ```java
+    -dontwarn  com.ikangtai.papersdk.**
+    -keep class com.ikangtai.papersdk.** {*;}
+    -keepclasseswithmembernames class *{
+    	native <methods>;
+    }
+  ```
+
 ## SDK Privacy Agreement
-   a) Purpose/purpose of collecting personal information: optimize and improve test strip algorithm
-   b) The type of personal information collected: device model, operating system, mobile phone developer identifier, network data
-   c) Required permissions: network permissions, camera permissions
-   d) Third-party SDK privacy policy link: https://static.shecarefertility.com/shecare/resource/dist/#/papersdk_privacy_policy
-   e) Provider: Beijing ikangtai Technology Co., Ltd.
+   a) Purpose/purpose of collecting personal information: optimize and improve test strip algorithm<br/>
+   b) The type of personal information collected: device model, operating system, mobile phone developer identifier, network data<br/>
+   c) Required permissions: network permissions, camera permissions<br/>
+   d) Third-party SDK privacy policy link: https://static.shecarefertility.com/shecare/resource/dist/#/papersdk_privacy_policy<br/>
+   e) Provider: Beijing ikangtai Technology Co., Ltd.<br/>
