@@ -40,7 +40,7 @@
 ## 基础版SDK接入指南
 ### 一.引入试纸sdk库
    ```java
-       api 'com.ikangtai.papersdk:ScPaperAnalysiserBasicLib:1.5.8'
+       api 'com.ikangtai.papersdk:ScPaperAnalysiserBasicLib:1.5.9-glide370'
    ```
 ### 二.添加依赖库地址
    ```java

@@ -40,7 +40,7 @@ English | [中文文档](README_zh.md)
 ## Basic SDK Access Guide
 ### 1. Introduce the test paper sdk library
    ```java
-       api 'com.ikangtai.papersdk:ScPaperAnalysiserBasicLib:1.5.8'
+       api 'com.ikangtai.papersdk:ScPaperAnalysiserBasicLib:1.5.9-glide370'
    ```
 ### 2. Add dependency library address
    ```java
