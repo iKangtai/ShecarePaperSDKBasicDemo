@@ -2,16 +2,16 @@
 ## Demo
 [http://fir.ikangtai.cn/1ha5](http://fir.ikangtai.cn/1ha5)
 
-## Internationalization
-English | [中文文档](README_zh.md)
+## 国际化
+[English](README.md) | 中文文档
 
 分为UI库和SDK库,UI库需要手动Copy到自己项目，SDK库上传到bintray通过Gradle引入
-## UI library
-### UI library integration
+## 基础版SDK UI库
+### 基础版SDK UI库接入
    ```java
        implementation project(path:":ScPaperAnalysiserUI")
    ```
-### Instructions
+### 使用方法
   1.修改com.ikangtai.paperui.AppConstant参数
   ```java
        /**
@@ -37,16 +37,16 @@ English | [中文文档](README_zh.md)
       startActivity(intent);
   ```
 
-## Basic SDK Access Guide
-### 1. Introduce the test paper sdk library
+## 基础版SDK接入指南
+### 一.引入试纸sdk库
    ```java
        api 'com.ikangtai.papersdk:ScPaperAnalysiserBasicLib:1.5.8'
    ```
-### 2. Add dependency library address
+### 二.添加依赖库地址
    ```java
       maven { url 'https://dl.bintray.com/ikangtaijcenter123/ikangtai' }
    ```
-### 3. How to use
+### 三.使用方法
   1.初始化
   ```java
     //初始化sdk
@@ -235,9 +235,9 @@ English | [中文文档](README_zh.md)
   ```java
     paperAnalysiserClient.closeSession();
   ```
-## SDK Privacy Agreement
-   a) Purpose/purpose of collecting personal information: optimize and improve test strip algorithm
-   b) The type of personal information collected: device model, operating system, mobile phone developer identifier, network data
-   c) Required permissions: network permissions, camera permissions
-   d) Third-party SDK privacy policy link: https://static.shecarefertility.com/shecare/resource/dist/#/papersdk_privacy_policy
-   e) Provider: Beijing ikangtai Technology Co., Ltd.
+## SDK隐私协议
+  a)收集个人信息目的/用途：优化、改善试纸算法
+  b)收集个人信息类型：设备型号、操作系统、手机开发商标识符、网络数据
+  c)需要获取的权限：网络权限、相机权限
+  d)第三方SDK隐私政策链接：https://static.shecarefertility.com/shecare/resource/dist/#/papersdk_privacy_policy
+  e)提供方：北京爱康泰科技有限责任公司
