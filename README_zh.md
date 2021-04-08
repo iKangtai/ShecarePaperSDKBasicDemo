@@ -54,103 +54,11 @@
   ```
   2.常规配置
   ```java
-    /**
-    * log默认路径/data/Android/pageName/files/Documents/log.txt,可以通过LogUtils.getLogFilePath()获取
-    * 自定义log文件有两种方式,设置一次即可
-    * 1. {@link Config.Builder#logWriter(Writer)}
-    * 2. {@link Config.Builder#logFilePath(String)}
-    */
-    String logFilePath = new File(FileUtil.createRootPath(getContext()), "log_test.txt").getAbsolutePath();
-    BufferedWriter logWriter = null;
-    try {
-        logWriter = new BufferedWriter(new FileWriter(logFilePath, true), 2048);
-    } catch (IOException e) {
-       e.printStackTrace();
-    }
     //试纸识别sdk相关配置
     Config config = new Config.Builder().pixelOfdExtended(true).paperMinHeight(PxDxUtil.dip2px(getContext(), 20)).uiOption(uiOption).logWriter(logWriter).build();
     paperAnalysiserClient = new PaperAnalysiserClient(getContext(), appId, appSecret, unionId,config);
   ```
-  3.拍照结果UI定制
-  ```java
-    //定制试纸Ui显示
-    /**
-     * 标题
-     */
-    String titleText = getContext().getString(com.ikangtai.papersdk.R.string.paper_result_dialog_title);
-    /**
-     * 标题颜色
-     */
-    int titleTextColor = getContext().getResources().getColor(com.ikangtai.papersdk.R.color.color_444444);
-    /**
-     * 标尺线
-     */
-    int tagLineImageResId = com.ikangtai.papersdk.R.drawable.paper_line;
-    /**
-     * t滑块图标
-     */
-    int tLineResId = com.ikangtai.papersdk.R.drawable.test_paper_t_line;
-    /**
-     * c滑块图标
-     */
-    int cLineResId = com.ikangtai.papersdk.R.drawable.test_paper_c_line;
-    /**
-     * 水平翻转文字
-     */
-    String flipText = getContext().getString(com.ikangtai.papersdk.R.string.paper_result_dialog_flip);
-    /**
-     * 水平翻转文字颜色
-     */
-    int flipTextColor = getContext().getResources().getColor(com.ikangtai.papersdk.R.color.color_67A3FF);
-    /**
-     * 提示文字
-     */
-    String hintText = getContext().getString(com.ikangtai.papersdk.R.string.paper_result_dialog_hit);
-    /**
-     * 提示文字颜色
-     */
-    int hintTextColor = getContext().getResources().getColor(com.ikangtai.papersdk.R.color.color_444444);
-    /**
-     * 返回按钮
-     */
-    int backResId = com.ikangtai.papersdk.R.drawable.test_paper_return;
-    /**
-     * 确认按钮
-     */
-    int confirmResId = com.ikangtai.papersdk.R.drawable.test_paper_confirm;
-    /**
-     * 返回按钮文字颜色
-     */
-    int backButtonTextColor = getContext().getResources().getColor(com.ikangtai.papersdk.R.color.color_444444);
-    /**
-     * 确认按钮文字颜色
-     */
-    int confirmButtonTextColor = getContext().getResources().getColor(com.ikangtai.papersdk.R.color.color_444444);
-    /**
-     * 显示底部按钮
-     */
-    boolean visibleBottomButton = false;
-    UiOption uiOption = new UiOption.Builder()
-            .titleText(titleText)
-            .tagLineImageResId(tagLineImageResId)
-            .titleTextColor(titleTextColor)
-            .tLineResId(tLineResId)
-            .cLineResId(cLineResId)
-            .flipText(flipText)
-            .flipTextColor(flipTextColor)
-            .hintText(hintText)
-            .hintTextColor(hintTextColor)
-            .backResId(backResId)
-            .confirmResId(confirmResId)
-            .backButtonTextColor(backButtonTextColor)
-            .confirmButtonTextColor(confirmButtonTextColor)
-            .visibleBottomButton(visibleBottomButton)
-            .build();
-    //试纸识别sdk相关配置
-    Config config = new Config.Builder().uiOption(uiOption).build();
-    paperAnalysiserClient.init(config);
-  ```
-  4.调用识别试纸图片
+  3.调用识别试纸图片
   ```java
     paperAnalysiserClient.analysisBitmap(fileBitmap, new IBitmapAnalysisEvent() {
                     @Override
@@ -218,7 +126,7 @@
                     }
                 });
   ```
-  5.非必要的配置
+  4.非必要的配置
   ```java
 
         //网络配置需要在初始化sdk之前
@@ -226,18 +134,122 @@
         Config.setTestServer(true);
         //网络超时时间
         Config.setNetTimeOut(30);
-
-        //判断手机性能是否满足sdk要求
-        1.SupportDeviceUtil.isSupport(getContext(),AppConstant.appId, AppConstant.appSecret)#第一次校验不准
-        2.application初始化中调用SupportDeviceUtil.isSupport(getContext(),AppConstant.appId, AppConstant.appSecret)，实际判断处调用SupportDeviceUtil.isSupport(getContext())
     ```
-  6.调用完成释放资源
+  5.调用完成释放资源
   ```java
     paperAnalysiserClient.closeSession();
   ```
+### UI定制
+    ```java
+      //定制试纸Ui显示
+      /**
+       * 标题
+       */
+      String titleText = getContext().getString(com.ikangtai.papersdk.R.string.paper_result_dialog_title);
+      /**
+       * 标题颜色
+       */
+      int titleTextColor = getContext().getResources().getColor(com.ikangtai.papersdk.R.color.color_444444);
+      /**
+       * 标尺线
+       */
+      int tagLineImageResId = com.ikangtai.papersdk.R.drawable.paper_line;
+      /**
+       * t滑块图标
+       */
+      int tLineResId = com.ikangtai.papersdk.R.drawable.test_paper_t_line;
+      /**
+       * c滑块图标
+       */
+      int cLineResId = com.ikangtai.papersdk.R.drawable.test_paper_c_line;
+      /**
+       * 水平翻转文字
+       */
+      String flipText = getContext().getString(com.ikangtai.papersdk.R.string.paper_result_dialog_flip);
+      /**
+       * 水平翻转文字颜色
+       */
+      int flipTextColor = getContext().getResources().getColor(com.ikangtai.papersdk.R.color.color_67A3FF);
+      /**
+       * 提示文字
+       */
+      String hintText = getContext().getString(com.ikangtai.papersdk.R.string.paper_result_dialog_hit);
+      /**
+       * 提示文字颜色
+       */
+      int hintTextColor = getContext().getResources().getColor(com.ikangtai.papersdk.R.color.color_444444);
+      /**
+       * 返回按钮
+       */
+      int backResId = com.ikangtai.papersdk.R.drawable.test_paper_return;
+      /**
+       * 确认按钮
+       */
+      int confirmResId = com.ikangtai.papersdk.R.drawable.test_paper_confirm;
+      /**
+       * 返回按钮文字颜色
+       */
+      int backButtonTextColor = getContext().getResources().getColor(com.ikangtai.papersdk.R.color.color_444444);
+      /**
+       * 确认按钮文字颜色
+       */
+      int confirmButtonTextColor = getContext().getResources().getColor(com.ikangtai.papersdk.R.color.color_444444);
+      /**
+       * 显示底部按钮
+       */
+      boolean visibleBottomButton = false;
+      UiOption uiOption = new UiOption.Builder()
+              .titleText(titleText)
+              .tagLineImageResId(tagLineImageResId)
+              .titleTextColor(titleTextColor)
+              .tLineResId(tLineResId)
+              .cLineResId(cLineResId)
+              .flipText(flipText)
+              .flipTextColor(flipTextColor)
+              .hintText(hintText)
+              .hintTextColor(hintTextColor)
+              .backResId(backResId)
+              .confirmResId(confirmResId)
+              .backButtonTextColor(backButtonTextColor)
+              .confirmButtonTextColor(confirmButtonTextColor)
+              .visibleBottomButton(visibleBottomButton)
+              .build();
+      //试纸识别sdk相关配置
+      Config config = new Config.Builder().pixelOfdExtended(true).margin(50).uiOption(uiOption).netTimeOutRetryCount(1).build();
+      paperAnalysiserClient.init(config);
+    ```
+ ### 查看日志
+  ```java
+    /**
+    * log默认路径/data/Android/pageName/files/Documents/log.txt,可以通过LogUtils.getLogFilePath()获取
+    * 自定义log文件有两种方式,设置一次即可
+    * 1. {@link Config.Builder#logWriter(Writer)}
+    * 2. {@link Config.Builder#logFilePath(String)}
+    */
+    String logFilePath = new File(FileUtil.createRootPath(getContext()), "log_test.txt").getAbsolutePath();
+    BufferedWriter logWriter = null;
+    try {
+        logWriter = new BufferedWriter(new FileWriter(logFilePath, true), 2048);
+    } catch (IOException e) {
+       e.printStackTrace();
+    }
+    //试纸识别sdk相关配置
+    Config config = new Config.Builder().pixelOfdExtended(true).paperMinHeight(PxDxUtil.dip2px(getContext(), 20)).uiOption(uiOption).logWriter(logWriter).build();
+    paperAnalysiserClient = new PaperAnalysiserClient(getContext(), appId, appSecret, "xyl1@qq.com",config);
+  ```
+### 混淆配置
+如果您的应用程序使用代码混淆，请添加以下配置，以避免由于混淆不正确而导致SDK不可用。
+  ```java
+    -dontwarn  com.ikangtai.papersdk.**
+    -keep class com.ikangtai.papersdk.** {*;}
+    -keepclasseswithmembernames class *{
+    	native <methods>;
+    }
+  ```
+
 ## SDK隐私协议
-  a)收集个人信息目的/用途：优化、改善试纸算法
-  b)收集个人信息类型：设备型号、操作系统、手机开发商标识符、网络数据
-  c)需要获取的权限：网络权限、相机权限
-  d)第三方SDK隐私政策链接：https://static.shecarefertility.com/shecare/resource/dist/#/papersdk_privacy_policy
-  e)提供方：北京爱康泰科技有限责任公司
+  a)收集个人信息目的/用途：优化、改善试纸算法<br/>
+  b)收集个人信息类型：设备型号、操作系统、手机开发商标识符、网络数据<br/>
+  c)需要获取的权限：网络权限、相机权限<br/>
+  d)第三方SDK隐私政策链接：https://static.shecarefertility.com/shecare/resource/dist/#/papersdk_privacy_policy<br/>
+  e)提供方：北京爱康泰科技有限责任公司<br/>
