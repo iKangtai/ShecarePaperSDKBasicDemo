@@ -23,7 +23,7 @@ Divided into UI library and SDK library, the UI library needs to be manually cop
        public static String appId = "100200";
        public static String appSecret = "6e1b1049a9486d49ba015af00d5a0";
        public static String unionId = "xiongyl@ikangtai.com";
-       public static String logFileName = "logFileName.txt";
+       public static String logFileName = "paperSdkLog.txt";
   ```
   2.Take a photo of the test strip to identify
   ```java
@@ -40,13 +40,9 @@ Divided into UI library and SDK library, the UI library needs to be manually cop
 ## Basic SDK Access Guide
 ### 1. Introduce the test paper sdk library
    ```java
-       api 'com.ikangtai.papersdk:ScPaperAnalysiserBasicLib:1.5.9-glide370'
+       api 'com.ikangtai.papersdk:ScPaperAnalysiserBasicLib:1.5.10-glide370'
    ```
-### 2. Add dependency library address
-   ```java
-      maven { url 'https://dl.bintray.com/ikangtaijcenter123/ikangtai' }
-   ```
-### 3. How to use
+### 2. How to use
   1.init
   ```java
     paperAnalysiserClient = new PaperAnalysiserClient(getContext(), appId, appSecret, unionId);

@@ -15,5 +15,5 @@ public class AppConstant {
     public static String appId = "100200";
     public static String appSecret = "6e1b1049a9486d49ba015af00d5a0";
     public static String unionId = "xiongyl@ikangtai.com";
-    public static String logFileName = "logFileName.txt";
+    public static String logFileName = "paperSdkLog.txt";
 }

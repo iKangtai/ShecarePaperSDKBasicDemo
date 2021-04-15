@@ -23,7 +23,7 @@
        public static String appId = "100200";
        public static String appSecret = "6e1b1049a9486d49ba015af00d5a0";
        public static String unionId = "xiongyl@ikangtai.com";
-       public static String logFileName = "logFileName.txt";
+       public static String logFileName = "paperSdkLog.txt";
   ```
   2.进行试纸拍照识别
   ```java
@@ -40,13 +40,9 @@
 ## 基础版SDK接入指南
 ### 一.引入试纸sdk库
    ```java
-       api 'com.ikangtai.papersdk:ScPaperAnalysiserBasicLib:1.5.9-glide370'
+       api 'com.ikangtai.papersdk:ScPaperAnalysiserBasicLib:1.5.10-glide370'
    ```
-### 二.添加依赖库地址
-   ```java
-      maven { url 'https://dl.bintray.com/ikangtaijcenter123/ikangtai' }
-   ```
-### 三.使用方法
+### 二.使用方法
   1.初始化
   ```java
     //初始化sdk
